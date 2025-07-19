@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { url } from '../../mainurl';
+import registerImage from '../assets/contact_background.jpg'
 
 
 export default function Register() {
@@ -24,7 +25,7 @@ export default function Register() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="min-h-screen flex items-center justify-center bg-cover bg-center" style={{backgroundImage: `url(${registerImage})`}}>
             <div className="max-w-md w-full p-6 shadow-lg rounded-lg bg-white text-center">
                 <h2 className="text-2xl font-bold mb-4">Register</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
