@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
@@ -13,7 +13,16 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
-  const token = localStorage.getItem("token");
+  const [tokenLoaded, setTokenLoaded] = useState(false);
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    setToken(storedToken);
+    setTokenLoaded(true);
+  }, []);
+
+  if (!tokenLoaded) return null;
 
   return (
     <div>
